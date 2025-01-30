@@ -28,13 +28,18 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                <ThemeProvider attribute="class" enableSystem defaultTheme="dark">
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+                <ThemeProvider 
+                    attribute="class" 
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
                     <SidebarProvider>
                         <AppSidebar />
-                        {children}
+                        <SidebarInset>
+                            {children}
+                        </SidebarInset>
                     </SidebarProvider>
                 </ThemeProvider>
             </body>
